@@ -2,25 +2,37 @@
   <view class="content">
     <UniBadge :text="9" />
     <DemoComp />
+
+    <button
+      id="prettier-id"
+      className="prettier-class"
+      @click="() => ({ name: 12323, age: 123 })"
+    >
+      Click Here
+    </button>
+
+    <view class="sample-graph-title">
+      {{ 111111111111 ? '袋' : '箱' }}{{ 1111111111111 ? '内' : '外' }}码
+    </view>
   </view>
 </template>
 
 <script setup lang="ts">
-import UniBadge from "@ui/uni-badge/uni-badge.vue";
-import DemoComp from "@/components/DemoComp.vue";
+import UniBadge from '@ui/uni-badge/uni-badge.vue'
+import DemoComp from '@/components/DemoComp.vue'
 
-import { DynamicObject } from "#/utils";
+import { DynamicObject } from '#/utils'
 
 interface Entity {
-  name: string;
+  name: string
 }
 
 var a: Entity & DynamicObject = {
-  name: "ryu",
+  name: 'ryu',
   age: 1,
-};
+}
 
-console.log("a :>> ", a);
+console.log('a :>> ', a)
 </script>
 
 <style>
