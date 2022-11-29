@@ -1,10 +1,8 @@
 # uniapp + vue3 + ts 项目开发模版
 
-
 ## 集成 uni-ui 框架
 
 [Github 链接](https://github.com/dcloudio/uni-ui)
-
 
 ```ts
 <template>
@@ -22,7 +20,7 @@ import UniBadge from "@ui/uni-badge/uni-badge.vue";
 
 ## 路由 & 页面管理
 
-## http请求封装
+## http 请求封装
 
 ## 状态管理
 
@@ -34,9 +32,8 @@ import UniBadge from "@ui/uni-badge/uni-badge.vue";
 
 ## miniprogram-ci
 
-## 原子化css
-
+## 原子化 css
 
 ## 第三方库
 
-- type-fest ts类型工具集
+- type-fest ts 类型工具集

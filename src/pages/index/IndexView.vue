@@ -46,10 +46,7 @@ console.log('a :>> ', a)
 .logo {
   height: 200rpx;
   width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
+  margin-top: 200rpx auto 50rpx;
 }
 
 .text-area {

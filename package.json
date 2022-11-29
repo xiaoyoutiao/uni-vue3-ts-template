@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "npm run dev:mp-weixin",
     "eslint": "eslint src/**/*.{js,vue,ts}",
+    "prettier": "prettier . --check",
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
     "dev:app-ios": "uni -p app-ios",
@@ -68,8 +69,15 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.8.0",
     "miniprogram-api-typings": "^3.6.0",
+    "postcss-html": "^1.5.0",
     "prettier": "^2.8.0",
     "sass": "^1.56.1",
+    "stylelint": "^14.15.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
     "typescript": "^4.8.4",
     "vite": "^3.2.4",
     "vite-plugin-eslint": "^1.8.1"

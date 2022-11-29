@@ -1,0 +1,23 @@
+{
+  "settings": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    },
+    "stylelint.snippet": [
+      "css",
+      "postcss",
+      "vue",
+      "sass",
+      "scss",
+      "html"
+    ],
+    "stylelint.validate": [
+      "css",
+      "postcss",
+      "vue",
+      "sass",
+      "scss",
+      "html"
+    ]
+  }
+}
