@@ -12,8 +12,12 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: "@uniui",
-        replacement: dir("./node_modules/@dcloudio/uni-ui/lib/"),
+        find: /^@ui/,
+        replacement: dir("node_modules/@dcloudio/uni-ui/lib/"),
+      },
+      {
+        find: /^#\/types/,
+        replacement: dir("types"),
       },
     ],
   },

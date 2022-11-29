@@ -19,6 +19,7 @@ specifiers:
   '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061020221121002
   '@dcloudio/uni-ui': ^1.4.23
   '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3061020221121002
+  '@types/node': ^18.11.9
   miniprogram-api-typings: ^3.6.0
   sass: ^1.56.1
   typescript: ^4.8.4
@@ -49,10 +50,11 @@ devDependencies:
   '@dcloudio/uni-cli-shared': 3.0.0-alpha-3061020221121002_vue@3.2.45
   '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061020221121002
   '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3061020221121002_vite@3.2.4+vue@3.2.45
+  '@types/node': 18.11.9
   miniprogram-api-typings: 3.6.0
   sass: 1.56.1
   typescript: 4.9.3
-  vite: 3.2.4_sass@1.56.1
+  vite: 3.2.4_ajklay5k626t46b6fyghkbup3i
 
 packages:
 
@@ -797,7 +799,7 @@ packages:
       jsonc-parser: 3.2.0
       picocolors: 1.0.0
       terser: 5.16.0
-      vite: 3.2.4_sass@1.56.1
+      vite: 3.2.4_ajklay5k626t46b6fyghkbup3i
     transitivePeerDependencies:
       - postcss
       - supports-color
@@ -972,6 +974,9 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
 
+  /@types/node/18.11.9:
+    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
+
   /@vitejs/plugin-legacy/2.3.1_terser@5.16.0+vite@3.2.4:
     resolution: {integrity: sha512-J5KaGBlSt2tEYPVjM/C8dA6DkRzkFkbPe+Xb4IX5G+XOV5OGbVAfkMjKywdrkO3gGynO8S98i71Lmsff4cWkCQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -985,7 +990,7 @@ packages:
       regenerator-runtime: 0.13.11
       systemjs: 6.13.0
       terser: 5.16.0
-      vite: 3.2.4_sass@1.56.1
+      vite: 3.2.4_ajklay5k626t46b6fyghkbup3i
     dev: true
 
   /@vitejs/plugin-vue-jsx/2.1.1_vite@3.2.4+vue@3.2.45:
@@ -998,7 +1003,7 @@ packages:
       '@babel/core': 7.20.2
       '@babel/plugin-transform-typescript': 7.20.2_@babel+core@7.20.2
       '@vue/babel-plugin-jsx': 1.1.1_@babel+core@7.20.2
-      vite: 3.2.4_sass@1.56.1
+      vite: 3.2.4_ajklay5k626t46b6fyghkbup3i
       vue: 3.2.45
     transitivePeerDependencies:
       - supports-color
@@ -1011,7 +1016,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.4_sass@1.56.1
+      vite: 3.2.4_ajklay5k626t46b6fyghkbup3i
       vue: 3.2.45
 
   /@vue/babel-helper-vue-transform-on/1.0.2:
@@ -2489,7 +2494,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vite/3.2.4_sass@1.56.1:
+  /vite/3.2.4_ajklay5k626t46b6fyghkbup3i:
     resolution: {integrity: sha512-Z2X6SRAffOUYTa+sLy3NQ7nlHFU100xwanq1WDwqaiFiCe+25zdxP1TfCS5ojPV2oDDcXudHIoPnI1Z/66B7Yw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2514,6 +2519,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.11.9
       esbuild: 0.15.16
       postcss: 8.4.19
       resolve: 1.22.1

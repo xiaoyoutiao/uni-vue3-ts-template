@@ -9,12 +9,40 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "types": [
+      "@dcloudio/types",
+      "vite/client"
+    ],
     "baseUrl": ".",
+    "removeComments": true,
+    "skipLibCheck": true,
     "paths": {
-      "@uniui/*" : ["node_modules/@dcloudio/uni-ui/lib/*"]
-    } 
+      "@ui/*": [
+        "node_modules/@dcloudio/uni-ui/lib/*"
+      ],
+      "#/*": [
+        "./types/*"
+      ]
+    },
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.js"
+  ]
 }

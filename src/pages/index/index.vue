@@ -1,18 +1,21 @@
 <template>
   <view class="content">
-    <image class="logo" src="/static/logo.png" />
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
-      <UniBadge text="100"></UniBadge>
-    </view>
+    <UniBadge :text="9" />
   </view>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import UniBadge from "@uniui/uni-badge/uni-badge.vue";
+import { DynamicObject } from "#/common";
+import UniBadge from "@ui/uni-badge/uni-badge.vue";
 
-const title = ref("Hello");
+interface Entity extends DynamicObject {
+  name: string;
+}
+
+const a: Entity = {
+  name: "ryu",
+  age: 1,
+};
 </script>
 
 <style>
