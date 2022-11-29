@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "npm run dev:mp-weixin",
-    "eslint": "eslint .",
+    "eslint": "eslint src/**/*.{js,vue,ts}",
     "dev:app": "uni -p app",
     "dev:app-android": "uni -p app-android",
     "dev:app-ios": "uni -p app-ios",
@@ -64,9 +64,11 @@
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.28.0",
+    "eslint-plugin-vue": "^9.8.0",
     "miniprogram-api-typings": "^3.6.0",
     "sass": "^1.56.1",
     "typescript": "^4.8.4",
-    "vite": "^3.2.4"
+    "vite": "^3.2.4",
+    "vite-plugin-eslint": "^1.8.1"
   }
 }

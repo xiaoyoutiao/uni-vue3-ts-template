@@ -1,22 +1,26 @@
 import { defineConfig } from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
+import eslint from "vite-plugin-eslint";
+
 import { resolve } from "path";
 
-const dir = (path: string) => {
-  return resolve(process.cwd(), ".", path);
-};
+const dir = (path: string) => resolve(process.cwd(), "./", path);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [uni()],
+  plugins: [uni(), eslint({})],
   resolve: {
     alias: [
       {
-        find: /^@ui/,
+        find: "@",
+        replacement: dir("src"),
+      },
+      {
+        find: "@ui",
         replacement: dir("node_modules/@dcloudio/uni-ui/lib/"),
       },
       {
-        find: /^#\/types/,
+        find: "#/types",
         replacement: dir("types"),
       },
     ],

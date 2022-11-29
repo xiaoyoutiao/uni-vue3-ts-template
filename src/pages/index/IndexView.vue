@@ -1,21 +1,26 @@
 <template>
   <view class="content">
     <UniBadge :text="9" />
+    <DemoComp />
   </view>
 </template>
 
 <script setup lang="ts">
-import { DynamicObject } from "#/utils";
 import UniBadge from "@ui/uni-badge/uni-badge.vue";
+import DemoComp from "@/components/DemoComp.vue";
+
+import { DynamicObject } from "#/utils";
 
 interface Entity {
   name: string;
 }
 
-const a: Entity & DynamicObject = {
+var a: Entity & DynamicObject = {
   name: "ryu",
   age: 1,
 };
+
+console.log("a :>> ", a);
 </script>
 
 <style>

@@ -17,10 +17,13 @@
       "@dcloudio/types",
       "vite/client"
     ],
-    "baseUrl": ".",
+    "baseUrl": "./",
     "removeComments": true,
     "skipLibCheck": true,
     "paths": {
+      "@/*": [
+        "src/*"
+      ],
       "@ui/*": [
         "node_modules/@dcloudio/uni-ui/lib/*"
       ],
