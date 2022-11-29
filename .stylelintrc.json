@@ -1,7 +1,12 @@
 {
   "extends": [
     "stylelint-config-standard-scss",
-    "stylelint-config-recommended-vue/scss"
+    "stylelint-config-recommended-vue/scss",
+    "stylelint-config-prettier-scss",
+    "stylelint-config-hudochenkov/order"
+  ],
+  "plugins": [
+    "stylelint-order"
   ],
   "rules": {
     "unit-no-unknown": [

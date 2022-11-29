@@ -1,6 +1,6 @@
 <template>
   <view class="content">
-    <UniBadge :text="9" />
+    <UniBadge :text="9" style="color: 10px" />
     <DemoComp />
 
     <button
@@ -39,13 +39,13 @@ console.log('a :>> ', a)
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .logo {
-  height: 200rpx;
   width: 200rpx;
+  height: 200rpx;
   margin-top: 200rpx auto 50rpx;
 }
 
@@ -55,7 +55,7 @@ console.log('a :>> ', a)
 }
 
 .title {
-  font-size: 36rpx;
   color: #8f8f94;
+  font-size: 36rpx;
 }
 </style>
