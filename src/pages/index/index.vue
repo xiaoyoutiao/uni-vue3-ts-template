@@ -5,14 +5,14 @@
 </template>
 
 <script setup lang="ts">
-import { DynamicObject } from "#/common";
+import { DynamicObject } from "#/utils";
 import UniBadge from "@ui/uni-badge/uni-badge.vue";
 
-interface Entity extends DynamicObject {
+interface Entity {
   name: string;
 }
 
-const a: Entity = {
+const a: Entity & DynamicObject = {
   name: "ryu",
   age: 1,
 };

@@ -25,7 +25,7 @@
         "node_modules/@dcloudio/uni-ui/lib/*"
       ],
       "#/*": [
-        "./types/*"
+        "types/*"
       ]
     },
     "noImplicitAny": true,
