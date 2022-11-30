@@ -1,6 +1,11 @@
 dist
 node_modules
+.husky
 .git
+
 
 pnpm-lock.yaml
 package.json
+.eslintignore
+.gitignore
+.prettierignore
