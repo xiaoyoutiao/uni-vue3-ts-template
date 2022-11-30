@@ -59,6 +59,9 @@
     "vue-i18n": "^9.1.9"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@commitlint/types": "^17.0.0",
     "@dcloudio/types": "^3.0.17",
     "@dcloudio/uni-automator": "3.0.0-alpha-3061020221121002",
     "@dcloudio/uni-cli-shared": "3.0.0-alpha-3061020221121002",
