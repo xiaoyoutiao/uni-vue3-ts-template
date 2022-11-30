@@ -1,67 +1,31 @@
 <template>
-  <view class="content">
-    <UniBadge :text="9" style="color: 10px" />
-    <DemoComp />
-
-    <button
-      id="prettier-id"
-      className="prettier-class"
-      @click="() => ({ name: 12323, age: 123 })"
-    >
-      Click Here
-    </button>
-
-    <view class="sample-graph-title">
-      {{ 111111111111 ? '袋' : '箱' }}{{ 1111111111111 ? '内' : '外' }}码
-    </view>
+  <view class="page-view">
+    <div class="w-112rpx text-32 bg-black text-white">测试文本</div>
+    <UniList :border="false">
+      <UniListItem>
+        <template #body>
+          <view class="item">
+            <text>消息</text>
+          </view>
+        </template>
+      </UniListItem>
+    </UniList>
   </view>
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
-import UniBadge from '@ui/uni-badge/uni-badge.vue'
-
-import DemoComp from '@/components/DemoComp.vue'
-
-import { isString } from '@/utils'
-
-import { DynamicObject } from '#types/utils'
-
-console.log('isString :>> ', isString)
-console.log('dayjs :>> ', dayjs)
-interface Entity {
-  name: string
-}
-
-var a: Entity & DynamicObject = {
-  name: 'ryu',
-  age: 1,
-}
-
-console.log('a :>> ', a)
+import UniList from '@ui/uni-list/uni-list.vue'
+import UniListItem from '@ui/uni-list-item/uni-list-item.vue'
 </script>
 
-<style>
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  width: 200rpx;
-  height: 200rpx;
-  margin-top: 200rpx auto 50rpx;
-}
-
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  color: #8f8f94;
-  font-size: 36rpx;
+<style lang="scss" scoped>
+.item {
+  vertical-align: middle;
+  width: 100%;
+  height: 112rpx;
+  border-bottom: 1px solid rgba(170 173 174 / 30%);
+  background: theme('colors.app.primary');
+  font-size: 32rpx;
+  line-height: 112rpx;
 }
 </style>

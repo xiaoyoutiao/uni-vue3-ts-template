@@ -42,6 +42,12 @@ import UniBadge from "@ui/uni-badge/uni-badge.vue";
 
 ## 原子化 css
 
+### unocss
+
+1. [unocss-preset-weapp](https://github.com/MellowCo/unocss-preset-weapp) : unocss 微信小程序预设, 提供内置的转换器, 将部分微信小程序不支持的样式进行转换.
+2. [@unocss/transformer-directives](https://github.com/unocss/unocss/tree/main/packages/transformer-directives): @apply、@screen 和 theme()指令的 UnoCSS 转换器, 使用对应的指令, 将支持的样式或主题应用到 css 中
+   > 项目中的`tailwind.config.cjs`只是为了利用 tailwind 的 vscode 拓展进行主题提示, 后续 unocss 支持相关 vscode 提示的话再移除此配置
+
 ## 第三方库
 
 - type-fest ts 类型工具集
