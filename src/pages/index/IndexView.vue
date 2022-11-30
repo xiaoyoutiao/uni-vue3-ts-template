@@ -18,11 +18,17 @@
 </template>
 
 <script setup lang="ts">
+import dayjs from 'dayjs'
 import UniBadge from '@ui/uni-badge/uni-badge.vue'
+
 import DemoComp from '@/components/DemoComp.vue'
 
-import { DynamicObject } from '#/utils'
+import { isString } from '@/utils'
 
+import { DynamicObject } from '#types/utils'
+
+console.log('isString :>> ', isString)
+console.log('dayjs :>> ', dayjs)
 interface Entity {
   name: string
 }

@@ -17,7 +17,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@ui/*": ["node_modules/@dcloudio/uni-ui/lib/*"],
-      "#/*": ["types/*"]
+      "#types/*": ["types/*"]
     },
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true

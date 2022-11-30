@@ -54,6 +54,7 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-alpha-3061020221121002",
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3061020221121002",
     "@dcloudio/uni-ui": "^1.4.23",
+    "dayjs": "^1.11.6",
     "vue": "^3.2.45",
     "vue-i18n": "^9.1.9"
   },
@@ -68,6 +69,7 @@
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.8.0",
     "husky": "^8.0.0",

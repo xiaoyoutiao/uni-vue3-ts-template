@@ -1,5 +1,6 @@
 /* eslint-env node */
 module.exports = {
+  root: true,
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -9,8 +10,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   parser: 'vue-eslint-parser',
-  plugins: ['@typescript-eslint'],
-  root: true,
+  plugins: ['import', '@typescript-eslint'],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
@@ -19,7 +19,41 @@ module.exports = {
       project: ['./tsconfig.json'],
     },
   },
+  settings: {},
   rules: {
     'vue/attribute-hyphenation': ['warn', 'never'],
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
+    'import/order': [
+      'warn',
+      {
+        'newlines-between': 'always',
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'type',
+          'object',
+        ],
+        pathGroups: [
+          {
+            pattern: '@/*',
+            group: 'internal',
+          },
+          {
+            pattern: '@/components/*',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '@/utils/*',
+            group: 'internal',
+            position: 'after',
+          },
+        ],
+      },
+    ],
   },
 }

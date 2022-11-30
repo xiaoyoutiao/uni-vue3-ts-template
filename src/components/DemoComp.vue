@@ -20,5 +20,3 @@ const props = withDefaults(defineProps<DemoCompProps>(), {
 
 const { hasBorder } = toRefs(props)
 </script>
-
-<style scoped></style>

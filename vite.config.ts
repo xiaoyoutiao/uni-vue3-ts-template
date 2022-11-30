@@ -1,8 +1,8 @@
+import { resolve } from 'path'
+
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import eslint from 'vite-plugin-eslint'
-
-import { resolve } from 'path'
 
 const dir = (path: string) => resolve(process.cwd(), './', path)
 
@@ -16,11 +16,7 @@ export default defineConfig({
         replacement: dir('src'),
       },
       {
-        find: '@ui',
-        replacement: dir('node_modules/@dcloudio/uni-ui/lib/'),
-      },
-      {
-        find: '#/types',
+        find: '#types',
         replacement: dir('types'),
       },
     ],
