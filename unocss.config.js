@@ -11,7 +11,7 @@ import { theme } from './tailwind.config.cjs'
 export default defineConfig({
   presets: [
     // https://github.com/MellowCo/unocss-preset-weapp
-    presetWeapp(),
+    presetWeapp({}),
   ],
   shortcuts: [
     {

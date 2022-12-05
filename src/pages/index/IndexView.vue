@@ -1,22 +1,12 @@
 <template>
   <view class="page-view">
-    <div class="w-112rpx text-32 bg-black text-white">测试文本</div>
-    <UniList :border="false">
-      <UniListItem>
-        <template #body>
-          <view class="item">
-            <text>消息</text>
-          </view>
-        </template>
-      </UniListItem>
-    </UniList>
+    <div class="w-full text-app-primary flex justify-between px-2">
+      Uni Vue3 TS
+    </div>
   </view>
 </template>
 
-<script setup lang="ts">
-import UniList from '@ui/uni-list/uni-list.vue'
-import UniListItem from '@ui/uni-list-item/uni-list-item.vue'
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .item {

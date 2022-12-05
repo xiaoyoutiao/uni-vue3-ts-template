@@ -21,6 +21,8 @@ module.exports = {
   },
   settings: {},
   rules: {
+    // 不允许使用any
+    // '@typescript-eslint/no-explicit-any': 'never',
     'vue/attribute-hyphenation': ['warn', 'never'],
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
     'import/order': [

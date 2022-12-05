@@ -5,16 +5,18 @@
     "stylelint-config-prettier-scss",
     "stylelint-config-hudochenkov/order"
   ],
-  "plugins": [
-    "stylelint-order"
-  ],
+  "plugins": ["stylelint-order"],
   "rules": {
     "unit-no-unknown": [
       true,
       {
-        "ignoreUnits": [
-          "rpx"
-        ]
+        "ignoreUnits": ["rpx"]
+      }
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": ["/page/", "picker"]
       }
     ]
   }
