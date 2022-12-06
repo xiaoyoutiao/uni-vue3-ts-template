@@ -1,12 +1,17 @@
 <template>
   <view class="page-view">
-    <div class="w-full text-app-primary flex justify-between px-2">
+    <view class="w-full text-app-primary flex justify-between px-2">
       Uni Vue3 TS
-    </div>
+    </view>
   </view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { randomInt } from '@/utils/unlodash'
+
+const result = randomInt(-1, -4)
+console.log('result :>> ', result)
+</script>
 
 <style lang="scss" scoped>
 .item {

@@ -8,9 +8,10 @@ module.exports = {
     'plugin:vue/vue3-strongly-recommended',
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
+    'plugin:you-dont-need-lodash-underscore/compatible',
   ],
   parser: 'vue-eslint-parser',
-  plugins: ['import', '@typescript-eslint'],
+  plugins: ['import', '@typescript-eslint', 'you-dont-need-lodash-underscore'],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
@@ -22,7 +23,7 @@ module.exports = {
   settings: {},
   rules: {
     // 不允许使用any
-    // '@typescript-eslint/no-explicit-any': 'never',
+    '@typescript-eslint/no-explicit-any': 0,
     'vue/attribute-hyphenation': ['warn', 'never'],
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
     'import/order': [

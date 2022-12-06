@@ -35,8 +35,9 @@ import UniBadge from "@ui/uni-badge/uni-badge.vue";
 1. [eslint-plugin-vue](https://eslint.vuejs.org/) : Vue.js 的官方 ESLint 插件。
 2. [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin): 为 TypeScript 代码库提供 eslint 规则。
 3. [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): 将 Prettier 作为 ESLint 规则运行，并将差异作为 ESLint 问题。
-4. [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md) : 此插件支持 ES2015+ (ES6+) 导入/导出语法的检查
-   > 此处仅引用 `eslint-plugin-import/order` 模块
+4. [eslint-plugin-import](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md) : 此插件支持 ES2015+ (ES6+) 导入/导出语法的检查(仅引用 `eslint-plugin-import/order` 模块)
+5. [eslint-plugin-you-dont-need-lodash-underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore/blob/master/configuring.md) :
+   识别代码库中不需要 Lodash/Underscore 的地方。(由于小程序轻量级特性, 禁止使用 Lodash/Underscore 等类库)
 
 ## miniprogram-ci
 
