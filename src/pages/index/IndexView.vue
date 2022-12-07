@@ -7,10 +7,9 @@
 </template>
 
 <script setup lang="ts">
-import { randomInt } from '@/utils/unlodash'
+import { StatusDef } from '@/config/enum'
 
-const result = randomInt(-1, -4)
-console.log('result :>> ', result)
+StatusDef.Success
 </script>
 
 <style lang="scss" scoped>
