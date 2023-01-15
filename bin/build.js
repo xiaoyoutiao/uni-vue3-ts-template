@@ -29,7 +29,7 @@ function CiProgram(options) {
 
   this.previewConfig = {
     qrcodeFormat: 'image',
-    qrcodeOutputDest: path.resolve(__dirname, './preview.jpg'),
+    qrcodeOutputDest: './preview.jpg',
     onProgressUpdate: console.log,
   }
 }
