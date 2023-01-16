@@ -3,13 +3,17 @@ const minimist = require('minimist')
 const shelljs = require('shelljs')
 const miniprogramCi = require('miniprogram-ci')
 const path = require('path')
+const semver = require('semver')
 
 const args = minimist(process.argv.slice(2))
-console.log('参数 ', JSON.stringify(args))
+
 const ModeEnum = {
   Upload: 'upload',
   Preview: 'preview',
 }
+
+const log = (...args) => console.log(...args)
+const exitWithErr = () => shelljs.exit(-1)
 
 function CiProgram(options) {
   this.branch = options.branch
@@ -30,55 +34,109 @@ function CiProgram(options) {
   this.previewConfig = {
     qrcodeFormat: 'image',
     qrcodeOutputDest: './preview.jpg',
-    onProgressUpdate: console.log,
+    // onProgressUpdate: console.log,
   }
+  this.uploadConfig = {}
 }
 
-const log = (...args) => console.log(...args)
-
 CiProgram.prototype.run = async function () {
-  this.buildApp()
-  this.makeCiProject()
-  if (this.mode === ModeEnum.Upload) {
-    await this.upload()
-  }
-  if (this.mode === ModeEnum.Preview) {
-    await this.preview()
+  try {
+    this.validate()
+    this.buildApp()
+    this.makeCiProject()
+
+    if (this.mode === ModeEnum.Upload) {
+      await this.upload()
+    }
+    if (this.mode === ModeEnum.Preview) {
+      await this.preview()
+    }
+  } catch (error) {
+    console.error(error)
+    exitWithErr()
   }
 }
 
 CiProgram.prototype.buildApp = function () {
-  log('构建小程序代码')
-  shelljs.exec('npm run build:mp-weixin')
+  try {
+    log('构建小程序代码')
+    const execResult = shelljs.exec('npm run build:mp-weixin')
+
+    if (execResult.stderr) {
+      exitWithErr()
+    }
+  } catch (error) {
+    throw error
+  }
 }
 
 CiProgram.prototype.makeCiProject = function () {
-  log('构建小程序CI项目')
+  try {
+    log('构建小程序CI项目')
 
-  const project = new miniprogramCi.Project(this.projectConfig)
+    const project = new miniprogramCi.Project(this.projectConfig)
 
-  this.project = project
+    this.project = project
+  } catch (error) {
+    throw error
+  }
 }
 
 CiProgram.prototype.preview = async function () {
-  log('执行小程序代码预览')
-  const previewResult = await miniprogramCi.preview({
-    ...this.previewConfig,
-    project: this.project,
+  try {
+    log('执行小程序代码预览')
+    const previewConfig = this.previewConfig || {}
+
+    await miniprogramCi.preview({
+      ...previewConfig,
+      project: this.project,
+      version: this.version,
+      desc: this.desc,
+      robot: this.robot,
+    })
+  } catch (error) {
+    throw error
+  }
+}
+
+CiProgram.prototype.upload = async function () {
+  try {
+    log('执行小程序代码上传')
+    const uploadConfig = this.uploadConfig || {}
+    await miniprogramCi.upload({
+      ...uploadConfig,
+      project: this.project,
+      version: this.version,
+      desc: this.desc,
+      robot: this.robot,
+      // onProgressUpdate: () => {}
+    })
+  } catch (error) {
+    throw error
+  }
+}
+
+CiProgram.prototype.validate = function () {
+  optionsValidate({
+    branch: this.branch,
+    mode: this.mode,
     version: this.version,
     desc: this.desc,
     robot: this.robot,
   })
-  console.log('previewResult :>> ', previewResult);
 }
 
-CiProgram.prototype.upload = function () {
-  log('执行小程序代码上传')
+function optionsValidate(options) {
+  Object.keys(options).forEach((key) => {
+    if (!options[key]) {
+      throw new Error(`构建参数无效："${key}"\n ${JSON.stringify(options)} \n`)
+    }
+  })
+
+  if (!semver.valid(options.version)) {
+    throw new Error(`版本号不符合semver规范\n  version: ${options.version}`)
+  }
 }
-
-CiProgram.prototype.validate = function () {}
-
-function versionValidate(version) {}
 
 const ciProgram = new CiProgram(args)
 ciProgram.run()
