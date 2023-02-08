@@ -348,3 +348,23 @@ export const randomInt = (a = 1, b = 0) => {
   const upper = Math.floor(Math.max(a, b))
   return Math.floor(lower + Math.random() * (upper - lower + 1))
 }
+
+export const pipe =
+  (...functions: Array<(...args: any[]) => any>) =>
+  (input: any) =>
+    functions.reduce((chain, func) => func(chain), input)
+
+export const pipeAsync: any =
+  (...fns: Array<(...args: any[]) => any>) =>
+  (input: any) =>
+    fns.reduce((chain, func) => chain.then(func), Promise.resolve(input))
+
+export const compose =
+  (...fns: Array<(...args: any[]) => any>) =>
+  (input: any) =>
+    fns.reduceRight((chain, func) => func(chain), input)
+
+export const composeAsync =
+  (...fns: Array<(...args: any[]) => any>) =>
+  (input: any) =>
+    fns.reduceRight((chain, func) => chain.then(func), Promise.resolve(input))
