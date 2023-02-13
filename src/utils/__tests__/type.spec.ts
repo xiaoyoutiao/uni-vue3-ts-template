@@ -6,7 +6,7 @@ describe('util functions', () => {
   const StatusDef = defineEnum([
     ['Success', 1, '成功'],
     ['Fail', 0, '失败'],
-  ])
+  ] as const)
 
   const statusDef = {
     Success: 1,

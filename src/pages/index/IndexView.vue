@@ -3,13 +3,35 @@
     <view class="w-full text-app-primary flex justify-between px-2">
       Uni Vue3 TS
     </view>
+
+    <p v-if="loading">loading...</p>
+    <button @click="send()">发送</button>
   </view>
 </template>
 
 <script setup lang="ts">
-import { StatusDef } from '@/config/enum'
+import { ref } from 'vue'
 
-StatusDef.Success
+import { isResponseError } from '@/utils/request'
+
+import { findAllTree } from '@/apis/lardmee-base'
+
+const loading = ref(false)
+
+const send = async () => {
+  try {
+    loading.value = true
+    const resData = await findAllTree()
+    console.log('请求成功 :>> ', resData)
+  } catch (error) {
+    if (isResponseError(error)) {
+      console.error('请求失败', error)
+      console.error('error.code :>> ', error.code)
+    }
+  } finally {
+    loading.value = false
+  }
+}
 </script>
 
 <style lang="scss" scoped>

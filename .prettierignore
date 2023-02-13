@@ -9,3 +9,8 @@ package.json
 .eslintignore
 .gitignore
 .prettierignore
+
+.env
+.env.*
+
+.npmrc

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 
-import { pipe, pipeAsync } from '@/utils/unodash'
+import { pipe, pipeAsync, uuid } from '@/utils/shared/unodash'
 
 describe('test pipe', () => {
   const toString = (val: unknown): string => String(val)
@@ -27,5 +27,21 @@ describe('test pipeAsync', async () => {
 
   it('pipe check', async () => {
     expect(await stringHead('Ryu')).toEqual('Hi! R')
+  })
+})
+
+describe('test uuid', () => {
+  it('uuid check unique', () => {
+    const batchCreateUuid = (num: number) =>
+      new Array(num).fill(null).map(() => uuid())
+
+    const size = 1000000
+
+    expect(new Set(batchCreateUuid(size)).size).toEqual(size)
+  })
+
+  it('uuid check prefix', () => {
+    const prefix = 'vitest_'
+    expect(uuid(prefix)).toEqual(expect.stringContaining(prefix))
   })
 })

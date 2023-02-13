@@ -1,4 +1,37 @@
-node_modules
-dist
+.DS_Store
+node_modules/
+unpackage/
+dist/
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-error.log*
+pnpm-debug.log*
+
+# lock files
+npm-lock.yaml
+yarn-lock.yaml
+
+# Editor directories and files
+.project
+.idea
+
+.vscode/**/*
+!.vscode/**/setting.json
+!.vscode/**/extensions.json
+
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
 
 .eslintcache
+
