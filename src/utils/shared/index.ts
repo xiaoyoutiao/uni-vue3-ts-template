@@ -36,3 +36,44 @@ export const defineEnum = <
     }),
   }
 }
+
+export function mapFields<
+  T,
+  R extends Record<keyof T, string | number | symbol>
+>(rigin: T, relation: R): { [RV in R[keyof R]]: any }
+
+export function mapFields<
+  T,
+  R extends Record<keyof T, string | number | symbol>
+>(rigin: T[], relation: R): { [RV in R[keyof R]]: any }[]
+
+export function mapFields<
+  OT,
+  T,
+  R extends Record<keyof T, string | number | symbol>,
+  O extends { [RV in R[keyof R]]: OT }
+
+  // O extends Record<R[keyof R], any>
+>(origin: T | T[], relation: R) {
+  const isArr = Array.isArray(origin)
+
+  const result = (isArr ? origin : [origin]).map((oCur) =>
+    Object.keys(relation).reduce(
+      (output, oField) => ((output[relation[oField]] = oCur[oField]), output),
+      {} as O
+    )
+  )
+
+  return isArr ? result : result[0]
+}
+
+export const safeJsonParse = <V extends string, T>(
+  value: V,
+  defaultValue: T
+) => {
+  try {
+    return JSON.parse(value)
+  } catch (error) {
+    return defaultValue
+  }
+}

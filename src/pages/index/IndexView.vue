@@ -9,30 +9,7 @@
   </view>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-
-import { isResponseError } from '@/utils/request'
-
-import { findAllTree } from '@/apis/lardmee-base'
-
-const loading = ref(false)
-
-const send = async () => {
-  try {
-    loading.value = true
-    const resData = await findAllTree()
-    console.log('请求成功 :>> ', resData)
-  } catch (error) {
-    if (isResponseError(error)) {
-      console.error('请求失败', error)
-      console.error('error.code :>> ', error.code)
-    }
-  } finally {
-    loading.value = false
-  }
-}
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .item {

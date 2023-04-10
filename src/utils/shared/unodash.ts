@@ -389,3 +389,67 @@ export function uuid(prefix = '') {
 
   return prefix + uuid
 }
+
+export function deepClone<T>(obj: T, visited: Map<any, any> = new Map()): T {
+  if (visited.has(obj)) {
+    return visited.get(obj)
+  }
+
+  if (obj instanceof Date) {
+    return new Date(obj.getTime()) as any
+  }
+
+  if (obj instanceof RegExp) {
+    return new RegExp(obj) as any
+  }
+
+  if (typeof obj === 'function') {
+    return obj as any
+  }
+
+  if (typeof obj !== 'object' || obj === null) {
+    return obj
+  }
+
+  let result: any
+  if (Array.isArray(obj)) {
+    result = []
+    visited.set(obj, result)
+    for (let i = 0; i < obj.length; i++) {
+      result[i] = deepClone(obj[i], visited)
+    }
+  } else if (obj instanceof Set) {
+    result = new Set()
+    visited.set(obj, result)
+    for (const value of obj) {
+      result.add(deepClone(value, visited))
+    }
+  } else if (obj instanceof Map) {
+    result = new Map()
+    visited.set(obj, result)
+    for (const [key, value] of obj) {
+      result.set(key, deepClone(value, visited))
+    }
+  } else {
+    const proto = Object.getPrototypeOf(obj)
+    result = Object.create(proto)
+    visited.set(obj, result)
+    for (const [key, value] of Object.entries(obj)) {
+      result[key] = deepClone(value, visited)
+    }
+  }
+
+  return result
+}
+
+export function omit<T, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
+  const result: Partial<T> = {}
+
+  Object.keys(obj).forEach((key) => {
+    if (!keys.includes(key as K)) {
+      result[key as keyof T] = obj[key as keyof T]
+    }
+  })
+
+  return result as Omit<T, K>
+}
