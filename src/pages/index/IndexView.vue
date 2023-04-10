@@ -1,15 +1,19 @@
 <template>
   <view class="page-view">
-    <view class="w-full text-app-primary flex justify-between px-2">
-      Uni Vue3 TS
-    </view>
+    <view class="w-full text-app-primary flex justify-between px-2"> Uni Vue3 TS </view>
 
-    <p v-if="loading">loading...</p>
-    <button @click="send()">发送</button>
+    <p>{{ msg }}</p>
+    <button @click="change">发送</button>
   </view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const msg = ref('Hello')
+
+const change = () => {
+  msg.value = 'Ryu'
+}
+</script>
 
 <style lang="scss" scoped>
 .item {

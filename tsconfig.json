@@ -9,15 +9,28 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["@dcloudio/types", "vite/client", "node"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "types": [
+      "@dcloudio/types",
+      "vite/client",
+      "node"
+    ],
     "baseUrl": "./",
     "removeComments": true,
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["src/*"],
-      "@ui/*": ["node_modules/@dcloudio/uni-ui/lib/*"],
-      "#types/*": ["types/*"]
+      "@/*": [
+        "src/*"
+      ],
+      "@ui/*": [
+        "node_modules/@dcloudio/uni-ui/lib/*"
+      ],
+      "#types/*": [
+        "types/*"
+      ]
     },
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
@@ -29,7 +42,12 @@
     "src/**/*.vue",
     "types/**/*.d.ts",
     "types/**/*.ts",
-    "vite.config.ts"
+    "vite.config.ts",
+    "auto-imports.d.ts"
   ],
-  "exclude": ["node_modules", "dist", "**/*.js"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.js"
+  ]
 }
