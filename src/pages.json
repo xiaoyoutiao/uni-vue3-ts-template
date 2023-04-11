@@ -13,6 +13,11 @@
       "style": {
         "navigationBarTitleText": "用户中心"
       }
+    },
+    {
+      "path": "pages/goods/detial/index",
+      "type": "page",
+      "style": {}
     }
   ],
   "globalStyle": {

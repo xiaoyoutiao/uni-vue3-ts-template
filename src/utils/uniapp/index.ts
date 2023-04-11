@@ -3,7 +3,7 @@ interface SimpleOptions {
   fail?: (error: any) => void
 }
 
-export function uniPromisify<Options extends SimpleOptions = SimpleOptions>(
+export function promisify<Options extends SimpleOptions = SimpleOptions>(
   callback: (options: Options) => void
 ) {
   return function (options: Options) {

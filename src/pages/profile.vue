@@ -20,7 +20,7 @@
   width: 100%;
   height: 112rpx;
   border-bottom: 1px solid rgba(170 173 174 / 30%);
-  background: theme('colors.app.primary');
+  background: theme('colors.primary');
   font-size: 32rpx;
   line-height: 112rpx;
 }

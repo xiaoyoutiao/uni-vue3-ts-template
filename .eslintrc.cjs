@@ -37,6 +37,7 @@ module.exports = {
   settings: {},
   rules: {
     // 不允许使用any
+    'no-undef': ['off'],
     '@typescript-eslint/no-explicit-any': 0,
     'vue/attribute-hyphenation': ['warn', 'never'],
     'vue/multi-word-component-names': [
