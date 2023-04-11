@@ -10,7 +10,9 @@ module.exports = {
   root: true,
   globals: {
     uni: 'readonly',
-    wx: 'readonly'
+    wx: 'readonly',
+    Uni: 'readonly',
+    PageEnum: 'readonly'
   },
   extends: [
     'eslint:recommended',
@@ -40,7 +42,7 @@ module.exports = {
     'vue/multi-word-component-names': [
       'error',
       {
-        ignores: ['index', 'default']
+        ignores: ['index', 'default', 'home', 'profile']
       }
     ],
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md

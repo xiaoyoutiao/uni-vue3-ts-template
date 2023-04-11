@@ -1,7 +1,14 @@
+<route lang="json">
+{
+  "style": {
+    "navigationBarTitleText": "tsssss"
+  }
+}
+</route>
+
 <template>
   <view class="page-view">
-    <view class="w-full text-app-primary flex justify-between px-2"> Uni Vue3 TS </view>
-
+    <view class="w-full text-app-primary flex justify-between px-2"> Home </view>
     <p>{{ msg }}</p>
     <button @click="change">发送</button>
   </view>
@@ -9,9 +16,8 @@
 
 <script setup lang="ts">
 const msg = ref('Hello')
-
-const change = () => {
-  msg.value = 'Ryu'
+const change = async () => {
+  uni.navigateTo({ url: PageEnum.Home })
 }
 </script>
 
