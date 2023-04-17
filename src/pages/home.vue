@@ -1,24 +1,36 @@
 <template>
   <view class="page-view">
-    <p ui-bg="primary" ui-w="375" ui-h="375" class="text-currency">{{ msg }}</p>
-    <button @click="showString">showString</button>
-    <button @click="showOpt">showOpt</button>
+    <BasicPaging ref="basicPagingRef" v-model="list" refresherEnabled @query="queryList">
+      <template #top>
+        <view class="header">请求</view>
+      </template>
+
+      <view class="list">
+        <view v-for="item in list" :key="item.id" class="a-item">{{ item.name }}</view>
+      </view>
+    </BasicPaging>
   </view>
 </template>
 
 <script setup lang="ts">
-const msg = ref('Hello')
-const showString = () => {
-  uni.showToast('您的余额不足, 请返回首页及时充值')
+interface Item {
+  name: string
+  id: number
 }
+const basicPagingRef = ref<InstanceType<BasicPaging>>(null)
+const list = ref<Item[]>([])
 
-const showOpt = () => {
-  uni.showToast({
-    title: '您的余额不足, 庆返回首页及时充值',
-    onDelay: () => {
-      console.log('推迟执行')
-    }
-  })
+const queryList = (pageNo: number, pageSize: number) => {
+  const datas: Item[] = []
+  console.log('pageNo :>> ', pageNo)
+  console.log('pageSize :>> ', pageSize)
+  for (let i = 0; i < pageNo * pageSize; i++) {
+    datas.push({ id: i, name: '数据项' + (i + 1) })
+  }
+
+  basicPagingRef.value?.complete(datas)
+
+  // list.value = datas
 }
 </script>
 
@@ -39,5 +51,22 @@ const showOpt = () => {
   background: theme('colors.primary');
   font-size: 32rpx;
   line-height: 112rpx;
+}
+
+.header {
+  width: 100%;
+  height: 90rpx;
+  background-color: #2c3e50;
+  color: #fff;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.a-item {
+  height: 300rpx;
+  margin: 16rpx;
+  background-color: #ccc;
+  color: #fff;
+  line-height: 300rpx;
 }
 </style>
