@@ -1,23 +1,16 @@
-export const sleep = (delay: number) =>
-  new Promise<void>((resolve) => setTimeout(resolve, delay))
+export const sleep = (delay: number) => new Promise<void>((resolve) => setTimeout(resolve, delay))
 
-export const defineEnum = <
-  T extends Readonly<Readonly<[string, string | number, string]>[]>
->(
+export const defineEnum = <T extends Readonly<Readonly<[string, string | number, string]>[]>>(
   list: T
 ) => {
   const kv = {}
   const vd = {}
 
-  const defineReadonlyProperty = <T>(
-    o: T,
-    p: string | number,
-    v: unknown
-  ): void => {
+  const defineReadonlyProperty = <T>(o: T, p: string | number, v: unknown): void => {
     Object.defineProperty(o, p, {
       writable: false,
       configurable: false,
-      value: v,
+      value: v
     })
   }
 
@@ -33,19 +26,25 @@ export const defineEnum = <
     }),
     ...(vd as {
       readonly [Entry in typeof list[number] as Entry[1]]: Entry[2]
-    }),
+    })
   }
 }
 
-export function mapFields<
-  T,
-  R extends Record<keyof T, string | number | symbol>
->(rigin: T, relation: R): { [RV in R[keyof R]]: any }
+export const defineOptions = <T extends Readonly<Readonly<[string, string | number, string]>[]>>(
+  list: T
+) => {
+  return list.map((item) => ({ label: item[2], value: item[1], key: item[0] }))
+}
 
-export function mapFields<
-  T,
-  R extends Record<keyof T, string | number | symbol>
->(rigin: T[], relation: R): { [RV in R[keyof R]]: any }[]
+export function mapFields<T, R extends Record<keyof T, string | number | symbol>>(
+  rigin: T,
+  relation: R
+): { [RV in R[keyof R]]: any }
+
+export function mapFields<T, R extends Record<keyof T, string | number | symbol>>(
+  rigin: T[],
+  relation: R
+): { [RV in R[keyof R]]: any }[]
 
 export function mapFields<
   OT,
@@ -67,10 +66,7 @@ export function mapFields<
   return isArr ? result : result[0]
 }
 
-export const safeJsonParse = <V extends string, T>(
-  value: V,
-  defaultValue: T
-) => {
+export const safeJsonParse = <V extends string, T>(value: V, defaultValue: T) => {
   try {
     return JSON.parse(value)
   } catch (error) {

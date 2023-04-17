@@ -2,7 +2,7 @@ import { resolve } from 'path'
 
 import { writeFile } from 'fs/promises'
 
-import { defineConfig, /* loadEnv, */ /* ConfigEnv */ } from 'vite'
+import { defineConfig /* loadEnv, */ /* ConfigEnv */ } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import Unocss from 'unocss/vite'
 import eslint from 'vite-plugin-eslint'
@@ -21,6 +21,7 @@ export default (/* { mode }: ConfigEnv */) => {
     define: ViteDefine,
     plugins: [
       UniPages({
+        exclude: ['service'],
         onAfterWriteFile() {
           const template = `declare const PageEnum = ${JSON.stringify(pageEnum, null, 2)} as const`
           writeFile(dir('./src/pages.d.ts'), template)
