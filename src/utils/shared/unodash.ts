@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * lodash/underscore 部分方法原生替代实现
  * @implements You-Dont-Need-Lodash-Underscore
@@ -11,9 +12,7 @@
  */
 export const chunk = (input: any[], size: number) => {
   return input.reduce((arr, item, idx) => {
-    return idx % size === 0
-      ? [...arr, [item]]
-      : [...arr.slice(0, -1), [...arr.slice(-1)[0], item]]
+    return idx % size === 0 ? [...arr, [item]] : [...arr.slice(0, -1), [...arr.slice(-1)[0], item]]
   }, [])
 }
 
@@ -28,16 +27,13 @@ export const flatten = (arr: any[]) => arr.reduce((a, b) => a.concat(b), [])
  * @example flattenDeep([1, [[2], [3, [4]], 5]]); // => [1, 2, 3, 4, 5]
  */
 export const flattenDeep = <T>(arr: T): T extends any[] ? T : T[] =>
-  Array.isArray(arr)
-    ? arr.reduce((a, b) => a.concat(flattenDeep(b)), [])
-    : [arr]
+  Array.isArray(arr) ? arr.reduce((a, b) => a.concat(flattenDeep(b)), []) : [arr]
 
 /**
  * Similar to without, but returns the values from array that are not present in the other arrays.
  * @example difference([[1, 2, 3, 4, 5], [5, 2, 10]]); // => [1, 3, 4]
  */
-export const difference = (arr: any[]) =>
-  arr.reduce((a, b) => a.filter((c: any) => !b.includes(c)))
+export const difference = (arr: any[]) => arr.reduce((a, b) => a.filter((c: any) => !b.includes(c)))
 
 /**
  * Returns an object composed from key-value pairs.
@@ -255,19 +251,12 @@ export const has = function (obj: Record<any, any>, key: string): boolean {
  * @example get({ a: [{ b: { c: 3 } }] }, 'a.0.b.c') // => 3
  * @example get({ a: [{ b: { c: 3 } }] }, 'a[0].b.c') // => 3
  */
-export const get = (
-  obj: Record<any, any>,
-  path: string,
-  defaultValue = undefined
-) => {
+export const get = (obj: Record<any, any>, path: string, defaultValue = undefined) => {
   const travel = (regexp: RegExp) =>
     String.prototype.split
       .call(path, regexp)
       .filter(Boolean)
-      .reduce(
-        (res, key) => (res !== null && res !== undefined ? res[key] : res),
-        obj
-      )
+      .reduce((res, key) => (res !== null && res !== undefined ? res[key] : res), obj)
   const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/)
   return result === undefined || result === obj ? defaultValue : result
 }
@@ -290,9 +279,7 @@ export function pick(object: Record<any, any>, keys: Array<string | number>) {
  * @example capitalize('hasOwn') // => Hasown
  */
 export const capitalize = <T extends string>(str: T) => {
-  return (
-    str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : ''
-  ) as Capitalize<T>
+  return (str ? str.charAt(0).toUpperCase() + str.slice(1).toLowerCase() : '') as Capitalize<T>
 }
 
 /**
@@ -312,11 +299,7 @@ export const upperFirst = (string: string) => {
 }
 
 /** Clamps number within the inclusive lower and upper bounds. */
-export const clamp = (
-  number: number,
-  boundOne: number,
-  boundTwo: number
-): number => {
+export const clamp = (number: number, boundOne: number, boundTwo: number): number => {
   if (!boundTwo) {
     return Math.max(number, boundOne) === boundOne ? number : boundOne
   } else if (Math.min(number, boundOne) === number) {
@@ -371,21 +354,15 @@ export const composeAsync =
 
 export function uuid(prefix = '') {
   let d = Date.now()
-  if (
-    typeof performance !== 'undefined' &&
-    typeof performance.now === 'function'
-  ) {
+  if (typeof performance !== 'undefined' && typeof performance.now === 'function') {
     d += performance.now() //use high-precision timer if available
   }
 
-  const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
-    /[xy]/g,
-    function (c) {
-      const r = (d + Math.random() * 16) % 16 | 0
-      d = Math.floor(d / 16)
-      return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16)
-    }
-  )
+  const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    const r = (d + Math.random() * 16) % 16 | 0
+    d = Math.floor(d / 16)
+    return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16)
+  })
 
   return prefix + uuid
 }

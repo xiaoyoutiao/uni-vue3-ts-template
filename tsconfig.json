@@ -16,7 +16,8 @@
     "types": [
       "@dcloudio/types",
       "vite/client",
-      "node"
+      "node",
+      "validator"
     ],
     "baseUrl": "./",
     "removeComments": true,
@@ -33,7 +34,8 @@
       ]
     },
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "isolatedModules": true
   },
   "include": [
     "src/**/*.ts",

@@ -29,7 +29,10 @@ export default (/* { mode }: ConfigEnv */) => {
       }),
       uni(),
       Unocss({}),
-      eslint({}),
+      eslint({
+        emitWarning: true,
+        emitError: true
+      }),
       AutoImport({
         imports: ['vue', 'uni-app'],
         eslintrc: {

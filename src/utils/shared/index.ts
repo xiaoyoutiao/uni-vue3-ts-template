@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const sleep = (delay: number) => new Promise<void>((resolve) => setTimeout(resolve, delay))
 
 export const defineEnum = <T extends Readonly<Readonly<[string, string | number, string]>[]>>(
@@ -10,7 +11,8 @@ export const defineEnum = <T extends Readonly<Readonly<[string, string | number,
     Object.defineProperty(o, p, {
       writable: false,
       configurable: false,
-      value: v
+      value: v,
+      enumerable: true
     })
   }
 
@@ -37,12 +39,12 @@ export const defineOptions = <T extends Readonly<Readonly<[string, string | numb
 }
 
 export function mapFields<T, R extends Record<keyof T, string | number | symbol>>(
-  rigin: T,
+  origin: T,
   relation: R
 ): { [RV in R[keyof R]]: any }
 
 export function mapFields<T, R extends Record<keyof T, string | number | symbol>>(
-  rigin: T[],
+  origin: T[],
   relation: R
 ): { [RV in R[keyof R]]: any }[]
 

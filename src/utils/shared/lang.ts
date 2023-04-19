@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const toString = Object.prototype.toString
 
 export function is(val: unknown, type: string) {
@@ -65,12 +66,7 @@ export function isEmpty<T = unknown>(val: T): val is T {
 }
 
 export function isPromise<T = any>(val: unknown): val is Promise<T> {
-  return (
-    is(val, 'promise') &&
-    isObject(val) &&
-    isFunction(val.then) &&
-    isFunction(val.catch)
-  )
+  return is(val, 'promise') && isObject(val) && isFunction(val.then) && isFunction(val.catch)
 }
 
 export function isRegExp(val: unknown): val is RegExp {

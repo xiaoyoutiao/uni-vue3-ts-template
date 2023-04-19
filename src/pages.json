@@ -1,6 +1,11 @@
 {
   "pages": [
     {
+      "path": "pages/launch",
+      "type": "home",
+      "style": {}
+    },
+    {
       "path": "pages/home",
       "type": "page",
       "style": {

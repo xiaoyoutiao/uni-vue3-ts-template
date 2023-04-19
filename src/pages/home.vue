@@ -1,3 +1,11 @@
+<route lang="json">
+{
+  "style": {
+    "navigationBarTitleText": "tsssss"
+  }
+}
+</route>
+
 <template>
   <view class="page-view">
     <BasicPaging ref="basicPagingRef" v-model="list" refresherEnabled @query="queryList">
@@ -33,14 +41,6 @@ const queryList = (pageNo: number, pageSize: number) => {
   // list.value = datas
 }
 </script>
-
-<route lang="json">
-{
-  "style": {
-    "navigationBarTitleText": "tsssss"
-  }
-}
-</route>
 
 <style lang="scss" scoped>
 .item {

@@ -1,0 +1,7 @@
+{
+  "globals": {
+    "Uni": true,
+    "PageEnum": true,
+    "BasicPaging": true
+  }
+}
