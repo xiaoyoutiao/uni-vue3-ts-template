@@ -40,7 +40,7 @@ module.exports = {
     'vue/multi-word-component-names': [
       'error',
       {
-        ignores: ['index', 'default', 'home', 'profile', 'launch']
+        ignores: ['index', 'default', 'home', 'profile', 'launch', "develop"]
       }
     ],
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md

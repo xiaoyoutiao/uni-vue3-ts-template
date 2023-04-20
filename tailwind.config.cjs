@@ -23,7 +23,7 @@ module.exports = {
       '5xl': [64, 96]
     }),
     colors: {
-      primary: '#ff6402',
+      primary: '#ff5050',
       currency: '#dc2017',
       white: {
         full: '#fff',
@@ -37,7 +37,7 @@ module.exports = {
         medium: '#666',
         light: '#999'
       },
-      gray: {},
+      // gray: {},
       error: '#dc2017',
       warning: '#ff9901',
       success: '#07c261',

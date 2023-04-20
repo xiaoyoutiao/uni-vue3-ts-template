@@ -1,4 +1,5 @@
 # uniapp + vue3 + ts 项目开发模版
+>  uniapp开发模版 by  ryu.huang
 
 ## 集成 uni-ui 框架
 
@@ -54,3 +55,4 @@ import UniBadge from "@ui/uni-badge/uni-badge.vue";
 ## 第三方库
 
 - type-fest ts 类型工具集
+

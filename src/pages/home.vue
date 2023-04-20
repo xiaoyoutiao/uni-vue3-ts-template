@@ -1,7 +1,8 @@
 <route lang="json">
 {
   "style": {
-    "navigationBarTitleText": "tsssss"
+    "navigationBarTitleText": "tsssss",
+    "navigationStyle": "custom"
   }
 }
 </route>
@@ -56,7 +57,7 @@ const queryList = (pageNo: number, pageSize: number) => {
 .header {
   width: 100%;
   height: 90rpx;
-  background-color: #2c3e50;
+  background-color: theme('colors.primary');
   color: #fff;
   line-height: 90rpx;
   text-align: center;

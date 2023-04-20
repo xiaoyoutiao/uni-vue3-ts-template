@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
+import { getDefinedEnvs } from '@/utils/config'
+
 onLaunch(() => {
+  const envs = getDefinedEnvs()
   console.log('App Launch')
+
+  console.log('\n环境变量一览\n')
+  console.table(envs)
 })
 onShow(() => {
   console.log('App Show')

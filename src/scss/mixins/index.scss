@@ -1,0 +1,16 @@
+@mixin safe-area-inset-bottom($property, $defaultVal: 0) {
+  #{$property}: $defaultVal;
+  #{$property}: constant(safe-area-inset-bottom);
+  #{$property}: env(safe-area-inset-bottom);
+}
+
+@mixin safe-area-inset-top($property, $defaultVal: 0) {
+  #{$property}: $defaultVal;
+  #{$property}: constant(safe-area-inset-top);
+  #{$property}: env(safe-area-inset-top);
+}
+
+@mixin safe-tabbar-inset-bottom($property) {
+  #{$property}: calc(constant(safe-area-inset-bottom) + 120rpx);
+  #{$property}: calc(env(safe-area-inset-bottom) + 120rpx);
+}

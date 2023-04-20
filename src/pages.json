@@ -3,13 +3,23 @@
     {
       "path": "pages/launch",
       "type": "home",
-      "style": {}
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/develop",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "开发调试页面(禁止Git提交)"
+      }
     },
     {
       "path": "pages/home",
       "type": "page",
       "style": {
-        "navigationBarTitleText": "tsssss"
+        "navigationBarTitleText": "tsssss",
+        "navigationStyle": "custom"
       }
     },
     {
@@ -30,5 +40,9 @@
     "navigationBarTitleText": "ts",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {}
   }
 }

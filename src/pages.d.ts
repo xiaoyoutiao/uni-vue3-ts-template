@@ -1,6 +1,7 @@
 declare const PageEnum = {
-  "Launch": "/pages/launch",
-  "Home": "/pages/home",
-  "Profile": "/pages/profile",
-  "GoodsDetial": "/pages/goods/detial/index"
+  Launch: '/pages/launch',
+  Develop: '/pages/develop',
+  Home: '/pages/home',
+  Profile: '/pages/profile',
+  GoodsDetial: '/pages/goods/detial/index'
 } as const
