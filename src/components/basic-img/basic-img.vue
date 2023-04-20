@@ -9,6 +9,7 @@
     :class="usedClass"
     @error="handleError"
     @load="handleLoad"
+    @click="handleClick"
   ></image>
 </template>
 
@@ -29,6 +30,7 @@ export interface BasicImgProps extends UniImageProps {
   usedClass?: string | string[] | Record<string, string | number>
   type?: keyof typeof basicImageTypes
   placeholder?: string
+  preview?: boolean
 }
 
 const props = withDefaults(defineProps<BasicImgProps>(), {
@@ -42,7 +44,7 @@ const props = withDefaults(defineProps<BasicImgProps>(), {
   type: undefined,
   placeholder: undefined
 })
-const emit = defineEmits(['error', 'load'])
+const emit = defineEmits(['error', 'load', 'click'])
 
 const src = ref<string>('')
 const basicStyle = computed(() => {
@@ -85,5 +87,13 @@ const handleError = (event: unknown) => {
 
 const handleLoad = (event: unknown) => {
   emit('load', event)
+}
+
+const handleClick = () => {
+  if (props.preview) {
+    uni.previewImage({ urls: [src.value] })
+  } else {
+    emit('click')
+  }
 }
 </script>

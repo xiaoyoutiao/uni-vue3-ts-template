@@ -8,10 +8,11 @@
 
 <template>
   <div>
-    <BasicImg
+    <basic-img
       :size="[90, 90, 50]"
       type="avatar"
       src="https://resource-1253782344.cos.ap-guangzhou.myqcloud.com/miniapps/ui/lardmee/mp-consumer/default-avatar.png"
+      preview
     />
     <!-- 
     <view>
@@ -22,8 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import BasicImg from '@/components/basic-img/BasicImg.vue'
-
+// import BasicImg from '@/components/basic-img/basic-img.vue'
 // const asyncSrc = ref('')
 
 // const setSrc = () => {

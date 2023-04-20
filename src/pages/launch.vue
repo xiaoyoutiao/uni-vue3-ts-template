@@ -12,7 +12,7 @@
     <image class="loading" src="@/static/launch-loading.png" />
     <text>正在启动，请稍候</text>
 
-    <BasicSafearea>
+    <basic-safearea>
       <template #top>
         <view class="text-center">版本: {{ miniProgram.version || '暂无' }}</view>
         <view v-if="miniProgram.envVersion !== 'release'" class="text-center">
@@ -20,12 +20,11 @@
           <text>{{ MpEnvEnum[envs.VITE_MP_ENV] }}环境</text>
         </view>
       </template>
-    </BasicSafearea>
+    </basic-safearea>
   </view>
 </template>
 
 <script setup lang="ts">
-import BasicSafearea from '@/components/basic-safearea/BasicSafearea.vue'
 import { getDefinedEnvs } from '@/utils/config'
 import { sleep } from '@/utils'
 import { MpEnvEnum } from '@/definitions'

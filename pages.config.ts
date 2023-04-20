@@ -10,6 +10,8 @@ export default defineUniPages({
   },
   easycom: {
     autoscan: true,
-    custom: {}
+    custom: {
+      '^(basic-.*)': '@/components/$1/$1.vue'
+    }
   }
 })
