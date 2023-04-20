@@ -34,7 +34,8 @@ export default (/* { command }: ConfigEnv */) => {
         emitError: true
       }),
       AutoImport({
-        imports: ['vue', 'uni-app'],
+        imports: ['vue', 'uni-app', 'pinia'],
+        dirs: ['./src/store'],
         eslintrc: {
           enabled: true
         }

@@ -5,6 +5,7 @@
     "BasicPaging": true,
     "ApiRes": true,
     "ApiPagingReq": true,
-    "ApiPagingRes": true
+    "ApiPagingRes": true,
+    "UniApp": true
   }
 }

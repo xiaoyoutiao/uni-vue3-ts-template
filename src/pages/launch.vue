@@ -14,10 +14,10 @@
 
     <basic-safearea>
       <template #top>
-        <view class="text-center">版本: {{ miniProgram.version || '暂无' }}</view>
-        <view v-if="miniProgram.envVersion !== 'release'" class="text-center">
-          <text>标识: {{ miniProgram.version || '暂无' }} / </text>
-          <text>{{ MpEnvEnum[envs.VITE_MP_ENV] }}环境</text>
+        <view class="text-center">版本: {{ miniappStore.version || '暂无' }}</view>
+        <view v-if="miniappStore.envVersion !== 'release'" class="text-center mt-1">
+          <text>标识: {{ miniappStore.version || '暂无' }} / </text>
+          <text>{{ MpEnvEnum[appStore.definedEnvs.VITE_MP_ENV] }}环境</text>
         </view>
       </template>
     </basic-safearea>
@@ -25,12 +25,11 @@
 </template>
 
 <script setup lang="ts">
-import { getDefinedEnvs } from '@/utils/config'
 import { sleep } from '@/utils'
 import { MpEnvEnum } from '@/definitions'
 
-const envs = getDefinedEnvs()
-const { miniProgram } = uni.getAccountInfoSync()
+const appStore = useAppStore()
+const miniappStore = useMiniappStore()
 
 onShow(async () => {
   await sleep(1500)

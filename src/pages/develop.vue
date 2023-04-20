@@ -7,29 +7,21 @@
 </route>
 
 <template>
-  <div>
-    <basic-img
-      :size="[90, 90, 50]"
-      type="avatar"
-      src="https://resource-1253782344.cos.ap-guangzhou.myqcloud.com/miniapps/ui/lardmee/mp-consumer/default-avatar.png"
-      preview
-    />
-    <!-- 
-    <view>
-      <button @click="setSrc">设置</button>
-      <BasicImg class="w-10 h-10" :src="asyncSrc" />
-    </view> -->
-  </div>
+  <view>
+    <view>{{ JSON.stringify(location, null, 2) }}</view>
+
+    <button @click="getLocation">获取位置</button>
+  </view>
 </template>
 
 <script setup lang="ts">
-// import BasicImg from '@/components/basic-img/basic-img.vue'
-// const asyncSrc = ref('')
+const miniappStore = useMiniappStore()
+const location = ref<UniApp.GetLocationSuccess | null>(null)
 
-// const setSrc = () => {
-//   asyncSrc.value =
-//     "https://resource-1253782344.cos.ap-guangzhou.myqcloud.com/miniapps/ui/lardmee/mp-consumer/default-avatar.png"
-// }
+const getLocation = async () => {
+  const res = await miniappStore.getLocationAsync({})
+  location.value = res
+}
 </script>
 
 <!-- <style scoped lang="scss"></style> -->
