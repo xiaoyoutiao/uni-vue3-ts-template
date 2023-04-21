@@ -1,8 +1,8 @@
 import { isFunction } from '@/utils'
 
-import { configMerge, isStringifyOptions, concatNumericProperties } from './utils'
+import { configMerge, isStringifyOptions, concatNumericProperties } from '../utils'
 
-const defaultShowToastOptions: ShowToastOptions = {
+const defaultShowToastOptions: UniShowToastOptions = {
   icon: 'none',
   duration: 3000,
   mask: true,
@@ -11,7 +11,7 @@ const defaultShowToastOptions: ShowToastOptions = {
 
 export function useShowToastInterceptor() {
   uni.addInterceptor('showToast', {
-    invoke(result: ShowToastOptions) {
+    invoke(result: UniShowToastOptions) {
       configMerge(result, defaultShowToastOptions)
 
       let title = result.title || ''

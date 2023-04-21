@@ -7,7 +7,7 @@ import uni from '@dcloudio/vite-plugin-uni'
 import Unocss from 'unocss/vite'
 import eslint from 'vite-plugin-eslint'
 import AutoImport from 'unplugin-auto-import/vite'
-import UniPages from '@uni-helper/vite-plugin-uni-pages'
+import UniPages, { PageContext } from '@uni-helper/vite-plugin-uni-pages'
 
 import ViteDefine, { pageEnum } from './build/vite/define'
 
@@ -22,6 +22,15 @@ export default (/* { command }: ConfigEnv */) => {
     plugins: [
       UniPages({
         exclude: ['service'],
+        onBeforeWriteFile(ctx: PageContext) {
+          const { pageMetaData, pagesGlobConfig } = ctx
+          const { tabBar } = pagesGlobConfig || {}
+          const { list } = tabBar || {}
+          list?.forEach((tb) => {
+            const metaData = pageMetaData.find((page) => page.path === tb.pagePath)
+            metaData && (metaData.type = 'tabbar')
+          })
+        },
         onAfterWriteFile() {
           const template = `declare const PageEnum = ${JSON.stringify(pageEnum, null, 2)} as const`
           writeFile(dir('./src/pages.d.ts'), template)

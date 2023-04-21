@@ -1,4 +1,5 @@
 export * from './miniapp'
+export * from './page'
 
 import { getDefinedEnvs } from '@/utils/config'
 const definedEnvs = getDefinedEnvs()

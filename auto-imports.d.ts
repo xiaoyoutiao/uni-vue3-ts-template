@@ -88,6 +88,7 @@ declare global {
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useMiniappStore: typeof import('./src/store/modules/app/miniapp')['useMiniappStore']
+  const usePageStore: typeof import('./src/store/modules/app/page')['usePageStore']
   const useSlots: typeof import('vue')['useSlots']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
@@ -97,5 +98,13 @@ declare global {
 // for type re-export
 declare global {
   // @ts-ignore
-  export type { Component, ComponentPublicInstance, ComputedRef, InjectionKey, PropType, Ref, VNode } from 'vue'
+  export type {
+    Component,
+    ComponentPublicInstance,
+    ComputedRef,
+    InjectionKey,
+    PropType,
+    Ref,
+    VNode
+  } from 'vue'
 }

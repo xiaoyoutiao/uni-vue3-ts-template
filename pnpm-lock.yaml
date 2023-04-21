@@ -49,12 +49,21 @@ dependencies:
   dayjs:
     specifier: ^1.11.6
     version: 1.11.6
+  decode-uri-component:
+    specifier: ^0.4.1
+    version: 0.4.1
+  filter-obj:
+    specifier: ^5.1.0
+    version: 5.1.0
   pinia:
     specifier: ^2.0.34
     version: 2.0.34(typescript@4.9.3)(vue@3.2.45)
   query-string:
     specifier: ^8.1.0
     version: 8.1.0
+  split-on-first:
+    specifier: ^3.0.0
+    version: 3.0.0
   validator:
     specifier: ^13.9.0
     version: 13.9.0

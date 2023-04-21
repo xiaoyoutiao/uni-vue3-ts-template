@@ -16,8 +16,8 @@
 
     <view>
       <text class="title">navigateTo拦截</text>
-      <button @click="navigateToByOptions">navigateToByOptions</button>
-      <button @click="navigateToByString">navigateToByString</button>
+      <button @click="navigateToByOptions">To By Options</button>
+      <button @click="navigateToByString">To By String</button>
     </view>
   </view>
 </template>
@@ -32,11 +32,13 @@ const getLocation = async () => {
 }
 
 const navigateToByOptions = () => {
-  uni.navigateTo({ url: PageEnum.Home })
+  uni.navigateBack({
+    storedQuery: { loading: true, url: 'https://www.baidu.com' }
+  })
 }
 
 const navigateToByString = () => {
-  uni.navigateTo(PageEnum.Home)
+  uni.switchTab(PageEnum.Home)
 }
 </script>
 

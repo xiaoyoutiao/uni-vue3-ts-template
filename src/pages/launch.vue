@@ -33,7 +33,7 @@ const miniappStore = useMiniappStore()
 
 onShow(async () => {
   await sleep(1500)
-  uni.redirectTo({ url: PageEnum.Home })
+  uni.switchTab(PageEnum.Home)
 })
 </script>
 

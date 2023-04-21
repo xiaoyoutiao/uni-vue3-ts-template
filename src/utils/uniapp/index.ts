@@ -1,5 +1,7 @@
 interface SimpleOptions {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   success?: (result: any) => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   fail?: (error: any) => void
 }
 

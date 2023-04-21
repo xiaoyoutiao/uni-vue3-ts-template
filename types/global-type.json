@@ -1,11 +1,11 @@
 {
   "globals": {
     "Uni": true,
+    "UniApp": true,
     "PageEnum": true,
-    "BasicPaging": true,
     "ApiRes": true,
+    "BasicPaging": true,
     "ApiPagingReq": true,
-    "ApiPagingRes": true,
-    "UniApp": true
+    "ApiPagingRes": true
   }
 }

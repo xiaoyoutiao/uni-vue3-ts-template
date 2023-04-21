@@ -91,6 +91,7 @@
     "useCssModule": true,
     "useCssVars": true,
     "useMiniappStore": true,
+    "usePageStore": true,
     "useSlots": true,
     "watch": true,
     "watchEffect": true,
