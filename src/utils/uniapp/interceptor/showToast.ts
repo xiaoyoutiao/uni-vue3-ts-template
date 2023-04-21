@@ -1,6 +1,6 @@
-import { has, isFunction } from '@/utils'
+import { isFunction } from '@/utils'
 
-import { configMerge } from './utils'
+import { configMerge, isStringifyOptions, concatNumericProperties } from './utils'
 
 const defaultShowToastOptions: ShowToastOptions = {
   icon: 'none',
@@ -16,13 +16,10 @@ export function useShowToastInterceptor() {
 
       let title = result.title || ''
 
-      if (!has(result, 'title') && has(result, '0')) {
-        let num = 0
-        while (has(result, String(num))) {
-          title += result[num]
-          num++
-        }
+      if (isStringifyOptions(result, 'title')) {
+        title = concatNumericProperties(result)
       }
+
       result.title = title
 
       if (result.success) {
