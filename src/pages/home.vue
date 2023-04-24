@@ -22,6 +22,10 @@
 </template>
 
 <script setup lang="ts">
+import { useQuery } from '@/composables/useQuery'
+
+const { query } = useQuery()
+
 interface Item {
   name: string
   id: number
@@ -42,13 +46,7 @@ const queryList = (pageNo: number, pageSize: number) => {
   // list.value = datas
 }
 
-onLoad(() => {
-  const { getQueryOnce } = usePageStore()
-  const qa = getQueryOnce()
-  const qb = getQueryOnce()
-  console.log('qa :>> ', qa)
-  console.log('qb :>> ', qb)
-})
+console.log('query :>> ', query)
 </script>
 
 <style lang="scss" scoped>

@@ -419,7 +419,7 @@ export function deepClone<T>(obj: T, visited: Map<any, any> = new Map()): T {
   return result
 }
 
-export function omit<T, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
+export function omit<T extends AnyObject, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
   const result: Partial<T> = {}
 
   Object.keys(obj).forEach((key) => {

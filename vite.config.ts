@@ -8,6 +8,7 @@ import Unocss from 'unocss/vite'
 import eslint from 'vite-plugin-eslint'
 import AutoImport from 'unplugin-auto-import/vite'
 import UniPages, { PageContext } from '@uni-helper/vite-plugin-uni-pages'
+import checker from 'vite-plugin-checker'
 
 import ViteDefine, { pageEnum } from './build/vite/define'
 
@@ -38,16 +39,19 @@ export default (/* { command }: ConfigEnv */) => {
       }),
       uni(),
       Unocss({}),
-      eslint({
-        emitWarning: true,
-        emitError: true
-      }),
       AutoImport({
         imports: ['vue', 'uni-app', 'pinia'],
         dirs: ['./src/store'],
         eslintrc: {
           enabled: true
         }
+      }),
+      eslint({
+        emitWarning: true,
+        emitError: true
+      }),
+      checker({
+        typescript: true
       })
     ],
     resolve: {

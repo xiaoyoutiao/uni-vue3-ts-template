@@ -32,9 +32,7 @@ const getLocation = async () => {
 }
 
 const navigateToByOptions = () => {
-  uni.navigateBack({
-    storedQuery: { loading: true, url: 'https://www.baidu.com' }
-  })
+  uni.reLaunch({ url: PageEnum.Home, query: { id: 11 } })
 }
 
 const navigateToByString = () => {

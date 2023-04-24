@@ -17,20 +17,20 @@ interface UniNavigateBackOptions
     Omit<CustomRouterOptions, 'query'> {}
 
 declare interface Uni {
-  showToast(options: UniShowToastOptions): void
   showToast(title: string): void
+  showToast(options: UniShowToastOptions): void
 
-  navigateTo(options: UniNavigateToOptions): void
   navigateTo(url: string): void
+  navigateTo(options: UniNavigateToOptions): void
 
-  redirectTo(options: UniRedirectToOptions): void
   redirectTo(url: string): void
+  redirectTo(options: UniRedirectToOptions): void
 
-  reLaunch(options: UniReLaunchOptions): void
   reLaunch(url: string): void
+  reLaunch(options: UniReLaunchOptions): void
 
-  switchTab(options: UniSwitchTabOptions): void
   switchTab(url: string): void
+  switchTab(options: UniSwitchTabOptions): void
 
   navigateBack(options: UniNavigateBackOptions | undefined): void
 }
