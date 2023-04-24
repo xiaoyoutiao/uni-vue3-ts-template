@@ -70,6 +70,7 @@
     "pinia": "^2.0.34",
     "query-string": "^8.1.0",
     "split-on-first": "^3.0.0",
+    "uni-ajax": "^2.5.1",
     "validator": "^13.9.0",
     "vue": "^3.2.45",
     "vue-i18n": "^9.1.9",

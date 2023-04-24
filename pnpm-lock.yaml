@@ -64,6 +64,9 @@ dependencies:
   split-on-first:
     specifier: ^3.0.0
     version: 3.0.0
+  uni-ajax:
+    specifier: ^2.5.1
+    version: 2.5.1
   validator:
     specifier: ^13.9.0
     version: 13.9.0
@@ -6026,6 +6029,10 @@ packages:
     dependencies:
       busboy: 1.6.0
     dev: true
+
+  /uni-ajax@2.5.1:
+    resolution: {integrity: sha512-xmJY/yl5eRAb0b2qujTS1XNYhkSRWGL4PwkYqQrLpH2BMa2v/2zCJtqcTVUmqn4qQtdP3vLoFL86vaH3ABYAZA==}
+    dev: false
 
   /unimport@3.0.6:
     resolution: {integrity: sha512-GYxGJ1Bri1oqx8VFDjdgooGzeK7jBk3bvhXmamTIpu3nONOcUMGwZbX7X0L5RA7OWMXpR4vzpSQP7pXUzJg1/Q==}
