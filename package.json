@@ -1,6 +1,9 @@
 {
-  "name": "uni-preset-vue",
-  "version": "0.0.0",
+  "name": "starter-uni-vue3",
+  "version": "0.0.1",
+  "description": "uniapp vue3开发模版",
+  "author": "xiaoyoutiao",
+  "repository": "",
   "scripts": {
     "dev": "npm run dev:mp-weixin",
     "dev:testing": "npm run dev:h5:testing",

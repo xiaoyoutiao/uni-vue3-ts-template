@@ -1,4 +1,8 @@
-import { useShowToastInterceptor } from './prompt'
+import {
+  useShowToastInterceptor,
+  useShowLoadingInterceptor,
+  useShowModalInterceptor
+} from './prompt'
 
 import {
   useNavigateToInterceptor,
@@ -10,9 +14,11 @@ import {
 
 export function useUniappInterceptor() {
   useShowToastInterceptor()
+  useShowLoadingInterceptor()
   useNavigateToInterceptor()
   useRedirectToInterceptor()
   useSwitchTabInterceptor()
   useReLaunchInterceptor()
   useNavigateBackInterceptor()
+  useShowModalInterceptor()
 }

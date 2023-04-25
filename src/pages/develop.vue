@@ -25,6 +25,16 @@
       <button @click="requestGet">request get</button>
       <button @click="cancelRequest">cancel request</button>
     </view>
+
+    <view>
+      <text class="title">showLoading</text>
+      <button @click="showLoading">showLoading</button>
+    </view>
+
+    <view>
+      <text class="title">showModal</text>
+      <button @click="showModal">showModal</button>
+    </view>
   </view>
 </template>
 
@@ -54,19 +64,27 @@ const requestGet = async () => {
 
   cancelRequest = async () => {
     await controller.abort()
-    const requestTask = await controller.source()
-    console.log('requestTask :>> ', requestTask)
   }
 
-  const res = await basicHttp.get(
-    'https://dev-ldm-triratna.xdp8.cn/server/api/lardmee-base/basedistrict/getProvinces',
-    null,
-    {
-      data: { did: 111, dname: 'ryudd' },
-      query: { id: 222, name: 'ryu' },
-      controller: controller
+  await basicHttp.get('https://cat-fact.herokuapp.com/facts/random', null, {
+    data: { did: 111, dname: 'ryudd' },
+    query: { id: 222, name: 'ryu' },
+    controller: controller
+  })
+}
+
+const showLoading = () => {
+  uni.showLoading('loadidndgd')
+}
+
+const showModal = () => {
+  uni.showModal({
+    title: '提示',
+    editable: true,
+    onConfirm: (content: string) => {
+      console.log('showModal Confirm', content)
     }
-  )
+  })
 }
 </script>
 

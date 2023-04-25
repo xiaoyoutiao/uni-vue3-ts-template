@@ -24,6 +24,10 @@ module.exports = {
     }),
     colors: {
       primary: '#ff5050',
+      success: '#07c261',
+      warning: '#ff9901',
+      error: '#dc2017',
+      
       currency: '#dc2017',
       white: {
         full: '#fff',
@@ -38,9 +42,8 @@ module.exports = {
         light: '#999'
       },
       // gray: {},
-      error: '#dc2017',
-      warning: '#ff9901',
-      success: '#07c261',
+
+
       info: '#017fe6'
     }
   }

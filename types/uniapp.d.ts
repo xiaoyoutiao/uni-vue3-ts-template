@@ -1,6 +1,13 @@
 interface UniShowToastOptions extends UniNamespace.ShowToastOptions {
   onDelay?: () => void
 }
+type UniShowLoadingOptions = UniApp.ShowLoadingOptions
+
+interface UniShowModalOptions extends UniApp.ShowModalOptions {
+  /** 点击确认按钮回调函数 */
+  onConfirm?: (content: string) => void
+}
+
 interface CustomRouterOptions {
   /** query会和url中的查询字符串合并, 重复的字段query会覆盖url的值 */
   query?: AnyObject
@@ -19,6 +26,11 @@ interface UniNavigateBackOptions
 declare interface Uni {
   showToast(title: string): void
   showToast(options: UniShowToastOptions): void
+
+  showLoading(title: string): void
+  showLoading(options: UniShowLoadingOptions): void
+
+  showModal(options: UniShowModalOptions): void
 
   navigateTo(url: string): void
   navigateTo(options: UniNavigateToOptions): void
