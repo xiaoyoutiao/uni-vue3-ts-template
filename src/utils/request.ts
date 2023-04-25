@@ -169,20 +169,20 @@ basicHttp.registerRequestInterceptor(
 basicHttp.registerResponseInterceptor(
   (response) => {
     const { data: resData } = response
-    const config: HttpRequestConfig = response.config
+    // const config: HttpRequestConfig = response.config
 
-    if (config.loading) {
-      uni.hideLoading()
-    }
+    // if (config.loading) {
+    //   uni.hideLoading()
+    // }
 
-    if (resData.code === 200) {
-      return resData.data
-    }
+    // if (resData.code === 200) {
+    //   return resData.data
+    // }
 
-    if (config.ignoreErrMsg !== true) {
-      uni.showToast({ title: resData.message, icon: 'none', duration: 3000 })
-    }
-
+    // if (config.ignoreErrMsg !== true) {
+    //   uni.showToast({ title: resData.message, icon: 'none', duration: 3000 })
+    // }
+    return resData
     const error = new ReponseError(resData.code, resData.message)
     throw error
   },

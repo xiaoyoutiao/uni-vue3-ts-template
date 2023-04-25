@@ -35,11 +35,22 @@
       <text class="title">showModal</text>
       <button @click="showModal">showModal</button>
     </view>
+
+    <view>
+      <text class="title">{{ isLoading ? 'in loading' : '' }}</text>
+      <text class="title">{{ isFinished ? 'isFinished' : '' }}</text>
+      <text>{{ JSON.stringify(data) }}</text>
+      <button @click="execute(23)">execute</button>
+    </view>
   </view>
 </template>
 
 <script setup lang="ts">
 import { basicHttp } from '@/utils/request'
+import { useServerapi } from '@/composables/useApi'
+import { getCats } from '@/apis'
+
+const { data, isFinished, isLoading, execute } = useServerapi(getCats, { args: [11] })
 
 const miniappStore = useMiniappStore()
 const location = ref<UniApp.GetLocationSuccess | null>(null)
