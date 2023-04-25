@@ -1,8 +1,9 @@
-import { normalizePageUrl, pageSafetyGuard } from './utils'
+import { normalizePageUrl, pageSafetyGuard, executeMiddleware } from './utils'
 
 export function useRedirectToInterceptor() {
   uni.addInterceptor('redirectTo', {
     invoke(result: UniRedirectToOptions) {
+      result.routerType = 'redirectTo'
       normalizePageUrl(result)
       pageSafetyGuard(result, 'redirectTo')
 
@@ -10,6 +11,8 @@ export function useRedirectToInterceptor() {
         const { setQuery } = usePageStore()
         setQuery(result.storedQuery)
       }
+
+      executeMiddleware(result)
     }
   })
 }

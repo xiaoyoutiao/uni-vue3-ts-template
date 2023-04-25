@@ -1,7 +1,3 @@
-@function cos($filename) {
-  @return $cos + $filename;
-}
-
 @function cos-url($filename) {
   @return url($cos + $filename);
 }

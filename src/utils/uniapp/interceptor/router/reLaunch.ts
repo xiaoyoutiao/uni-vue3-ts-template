@@ -1,8 +1,9 @@
-import { normalizePageUrl, pageSafetyGuard } from './utils'
+import { normalizePageUrl, pageSafetyGuard, executeMiddleware } from './utils'
 
 export function useReLaunchInterceptor() {
   uni.addInterceptor('reLaunch', {
     invoke(result: UniReLaunchOptions) {
+      result.routerType = 'reLaunch'
       normalizePageUrl(result)
       pageSafetyGuard(result, 'reLaunch')
 
@@ -10,6 +11,8 @@ export function useReLaunchInterceptor() {
         const { setQuery } = usePageStore()
         setQuery(result.storedQuery)
       }
+
+      executeMiddleware(result)
     }
   })
 }

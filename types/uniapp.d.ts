@@ -8,11 +8,14 @@ interface UniShowModalOptions extends UniApp.ShowModalOptions {
   onConfirm?: (content: string) => void
 }
 
+type UniRouterType = 'navigateTo' | 'redirectTo' | 'switchTab' | 'reLaunch' | 'navigateBack'
+
 interface CustomRouterOptions {
   /** query会和url中的查询字符串合并, 重复的字段query会覆盖url的值 */
   query?: AnyObject
   /** 储存在状态管理库中的对象数据 */
   storedQuery?: AnyObject
+  routerType: UniRouterType
 }
 
 interface UniNavigateToOptions extends UniNamespace.NavigateToOptions, CustomRouterOptions {}

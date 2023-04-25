@@ -90,7 +90,7 @@ export const useMiniappStore = defineStore('miniapp', () => {
     }
 
     if (isLocationCacheValid() && options.force !== true) return locationCache.location
-    const usedOptions = omit(options, 'success', 'fail', 'force')
+    const usedOptions = omit(options, ['success', 'fail', 'force'])
     console.info('调用"uni.getLocation"能力')
     const location = await promisify(uni.getLocation)({
       ...usedOptions,

@@ -265,15 +265,13 @@ export const get = (obj: Record<any, any>, path: string, defaultValue = undefine
  * Creates an object composed of the object properties predicate returns truthy for.
  * @example pick({ a: 1, b: '2', c: 3, 2: 4 }, ['a', 'c', '2'])
  */
-export function pick(object: Record<any, any>, keys: Array<string | number>) {
-  return keys.reduce((obj: Record<any, any>, key: string | number) => {
-    if (object && Object.prototype.hasOwnProperty.call(object, key)) {
-      obj[key] = object[key]
-    }
-    return obj
-  }, {})
+export function pick<T, K extends keyof T>(obj: T, keys: K[]): Pick<T, K> {
+  const pickedObj = {} as Pick<T, K>
+  keys.forEach((key) => {
+    pickedObj[key] = obj[key]
+  })
+  return pickedObj
 }
-
 /**
  * onverts the first character of string to upper case and the remaining to lower case.
  * @example capitalize('hasOwn') // => Hasown
@@ -419,7 +417,7 @@ export function deepClone<T>(obj: T, visited: Map<any, any> = new Map()): T {
   return result
 }
 
-export function omit<T extends AnyObject, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
+export function omit<T extends AnyObject, K extends keyof T>(obj: T, keys: K[]): Omit<T, K> {
   const result: Partial<T> = {}
 
   Object.keys(obj).forEach((key) => {
