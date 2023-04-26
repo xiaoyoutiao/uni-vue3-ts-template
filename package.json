@@ -71,6 +71,7 @@
     "decode-uri-component": "^0.4.1",
     "filter-obj": "^5.1.0",
     "pinia": "^2.0.34",
+    "pinia-plugin-persist-uni": "^1.2.0",
     "query-string": "^8.1.0",
     "split-on-first": "^3.0.0",
     "uni-ajax": "^2.5.1",

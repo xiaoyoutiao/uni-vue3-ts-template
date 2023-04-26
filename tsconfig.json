@@ -9,29 +9,15 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "types": [
-      "@dcloudio/types",
-      "vite/client",
-      "node",
-      "validator"
-    ],
+    "lib": ["esnext", "dom"],
+    "types": ["@dcloudio/types", "vite/client", "node", "validator", "pinia-plugin-persist-uni"],
     "baseUrl": "./",
     "removeComments": true,
     "skipLibCheck": true,
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@ui/*": [
-        "node_modules/@dcloudio/uni-ui/lib/*"
-      ],
-      "#types/*": [
-        "types/*"
-      ]
+      "@/*": ["src/*"],
+      "@ui/*": ["node_modules/@dcloudio/uni-ui/lib/*"],
+      "#types/*": ["types/*"]
     },
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
@@ -47,9 +33,5 @@
     "vite.config.ts",
     "auto-imports.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/*.js"
-  ]
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }

@@ -24,7 +24,7 @@ yarn-lock.yaml
 .idea
 
 .vscode/**/*
-!.vscode/**/setting.json
+!.vscode/**/settings.recommond.json
 !.vscode/**/extensions.json
 
 *.suo

@@ -58,6 +58,9 @@ dependencies:
   pinia:
     specifier: ^2.0.34
     version: 2.0.34(typescript@4.9.3)(vue@3.2.45)
+  pinia-plugin-persist-uni:
+    specifier: ^1.2.0
+    version: 1.2.0(pinia@2.0.34)(vue@3.2.45)
   query-string:
     specifier: ^8.1.0
     version: 8.1.0
@@ -4856,6 +4859,21 @@ packages:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
 
+  /pinia-plugin-persist-uni@1.2.0(pinia@2.0.34)(vue@3.2.45):
+    resolution: {integrity: sha512-9ZLdeB+nfeu0WD7WEv19E1u2cWbnK/J8fDR5w56JPGoQtbU4Uy8VLKSvfHlbuVzGxBaE1DhG4/ulWVm3oAArpg==}
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0
+      pinia: ^2.0.0
+      vue: ^2.0.0 || >=3.0.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      pinia: 2.0.34(typescript@4.9.3)(vue@3.2.45)
+      vue: 3.2.45
+      vue-demi: 0.12.5(vue@3.2.45)
+    dev: false
+
   /pinia@2.0.34(typescript@4.9.3)(vue@3.2.45):
     resolution: {integrity: sha512-cgOoGUiyqX0SSgX8XelK9+Ri4XA2/YyNtgjogwfzIx1g7iZTaZPxm7/bZYMCLU2qHRiHhxG7SuQO0eBacFNc2Q==}
     peerDependencies:
@@ -6437,6 +6455,21 @@ packages:
   /vscode-uri@3.0.7:
     resolution: {integrity: sha512-eOpPHogvorZRobNqJGhapa0JdwaxpjVvyBp0QIUMRMSf8ZAlqOdEquKuRmw9Qwu0qXtJIWqFtMkmvJjUZmMjVA==}
     dev: true
+
+  /vue-demi@0.12.5(vue@3.2.45):
+    resolution: {integrity: sha512-BREuTgTYlUr0zw0EZn3hnhC3I6gPWv+Kwh4MCih6QcAeaTlaIX0DwOVN0wHej7hSvDPecz4jygy/idsgKfW58Q==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.45
+    dev: false
 
   /vue-demi@0.14.0(vue@3.2.45):
     resolution: {integrity: sha512-gt58r2ogsNQeVoQ3EhoUAvUsH9xviydl0dWJj7dabBC/2L4uBId7ujtCwDRD0JhkGsV1i0CtfLAeyYKBht9oWg==}

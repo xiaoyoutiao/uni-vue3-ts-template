@@ -42,6 +42,11 @@
       <text>{{ JSON.stringify(data) }}</text>
       <button @click="execute(23)">execute</button>
     </view>
+
+    <view>
+      <button @click="updateToken">piniaPersist</button>
+      <button @click="logToken">logToken</button>
+    </view>
   </view>
 </template>
 
@@ -49,6 +54,7 @@
 import { basicHttp } from '@/utils/request'
 import { useServerapi } from '@/composables/useApi'
 import { getCats } from '@/apis'
+import { useUserStore } from '@/store/modules/user'
 
 const { data, isFinished, isLoading, execute } = useServerapi(getCats, { args: [11] })
 
@@ -96,6 +102,16 @@ const showModal = () => {
       console.log('showModal Confirm', content)
     }
   })
+}
+
+const userStore = useUserStore()
+
+const updateToken = () => {
+  userStore.accessToken = 'XXXX-YYYY-ZZZZ'
+}
+
+const logToken = () => {
+  console.log('accessToken :>> ', userStore.accessToken)
 }
 </script>
 

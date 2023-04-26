@@ -70,7 +70,7 @@ export function executeMiddleware(config: UniNavigateToOptions) {
 
   for (let i = 0, l = middlewares.length; i < l; i++) {
     const fn = middlewares[i]
-    const res = fn(to, from, Object.assign({}, pick(config, ['url', 'routerType'])))
+    const res = fn(to, from, Object.assign({}, pick(config, ['url', 'routerType', 'query'])))
 
     if (res === false) {
       config.url = ''

@@ -15,7 +15,7 @@ interface CustomRouterOptions {
   query?: AnyObject
   /** 储存在状态管理库中的对象数据 */
   storedQuery?: AnyObject
-  routerType: UniRouterType
+  routerType?: UniRouterType
 }
 
 interface UniNavigateToOptions extends UniNamespace.NavigateToOptions, CustomRouterOptions {}
