@@ -1,5 +1,5 @@
 <template>
-  <view id="safe-area" class="safe-area-view" :class="{ fixed }" :style="safeAreaStyle">
+  <view id="safearea" class="safe-area-view" :class="{ fixed }" :style="safeAreaStyle">
     <slot name="top"></slot>
     <view :class="['safe-area-inner--' + props.position]">
       <slot></slot>
@@ -37,9 +37,9 @@ const safeAreaStyle = computed(() => {
 })
 
 onMounted(() => {
-  const query = uni.createSelectorQuery().in(this)
+  const query = uni.createSelectorQuery().in(getCurrentInstance())
   query
-    .select('#safe-area')
+    .select('#safearea')
     .boundingClientRect((data) => {
       emit('resize', data)
     })

@@ -73,7 +73,7 @@
       <button @click="logToken">logToken</button>
     </view>
 
-    <basic-safearea></basic-safearea>
+    <basic-safearea @resize="onResize"></basic-safearea>
   </view>
 </template>
 
@@ -153,6 +153,10 @@ const getStorage = () => {
 
 const setStorage = () => {
   setItem('develop-user', setItemValue, { maxAge: 1000 * 30 })
+}
+
+const onResize = (data: any) => {
+  console.log('data :>> ', data)
 }
 </script>
 
