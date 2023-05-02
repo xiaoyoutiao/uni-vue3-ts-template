@@ -16,7 +16,7 @@
 <script setup lang="ts">
 /**
   @description 基础图片组件
-  @author ryu.huang 
+  @author ryu.huang
  */
 
 import { isNumber, isUnDef } from '@/utils'
@@ -46,7 +46,7 @@ const props = withDefaults(defineProps<BasicImgProps>(), {
 })
 const emit = defineEmits(['error', 'load', 'click'])
 
-const src = ref<string>('')
+const src = ref<string>(props.src)
 const basicStyle = computed(() => {
   let width, height, radius
 
@@ -64,7 +64,14 @@ const basicStyle = computed(() => {
   isNumber(width) && (width = width + 'rpx')
   isNumber(height) && (height = height + 'rpx')
 
-  return { width, height, borderRadius: radius }
+  const styleObj = { width, height, borderRadius: radius }
+  const resultObj = {}
+  for (const key in styleObj) {
+    if (styleObj[key] !== undefined || styleObj[key] !== '') {
+      resultObj[key] = styleObj[key]
+    }
+  }
+  return resultObj
 })
 
 watch(

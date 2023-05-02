@@ -9,6 +9,10 @@
 <template>
   <view>
     <view>
+      <basic-img src="https://picsum.photos/200" type="avatar" :size="[300, 300]"></basic-img>
+    </view>
+
+    <view>
       <text class="title">获取定位</text>
       <view>{{ JSON.stringify(location, null, 2) }}</view>
       <button @click="getLocation">获取位置</button>
@@ -47,6 +51,8 @@
       <button @click="updateToken">piniaPersist</button>
       <button @click="logToken">logToken</button>
     </view>
+
+    <basic-safearea></basic-safearea>
   </view>
 </template>
 

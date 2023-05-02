@@ -20,7 +20,7 @@ export interface BasicSafeareaProps {
 const props = withDefaults(defineProps<BasicSafeareaProps>(), {
   position: 'bottom',
   background: 'transparent',
-  fixed: true,
+  fixed: false,
   bottom: 0,
   top: 0
 })

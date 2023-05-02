@@ -19,11 +19,11 @@ export default defineUniPages({
         pagePath: 'pages/profile'
       }
     ]
-  },
-  easycom: {
-    autoscan: true,
-    custom: {
-      '^(basic-.*)': '@/components/$1/$1.vue'
-    }
   }
+  // easycom: {
+  //   autoscan: true,
+  //   custom: {
+  //     '^(basic-.*)': '@/components/$1/$1.vue'
+  //   }
+  // }
 })

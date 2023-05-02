@@ -9,6 +9,7 @@ import eslint from 'vite-plugin-eslint'
 import AutoImport from 'unplugin-auto-import/vite'
 import UniPages, { PageContext } from '@uni-helper/vite-plugin-uni-pages'
 import checker from 'vite-plugin-checker'
+import Components from 'unplugin-vue-components/vite'
 
 import ViteDefine, { pageEnum } from './build/vite/define'
 
@@ -36,6 +37,11 @@ export default (/* { command }: ConfigEnv */) => {
           const template = `declare const PageEnum = ${JSON.stringify(pageEnum, null, 2)} as const`
           writeFile(dir('./src/pages.d.ts'), template)
         }
+      }),
+      Components({
+        globs: ['src/components/basic-*/basic-*.vue'],
+        exclude: [/[\\/]node_modules[\\/]/, /[\\/]\.git[\\/]/, /[\\/]dist[\\/]/],
+        dts: true
       }),
       uni(),
       Unocss({}),

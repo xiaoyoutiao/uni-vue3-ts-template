@@ -24,4 +24,4 @@ export interface UniImageProps {
 
 export type BasicSizeType = number | string
 /** [宽, 高, 圆角] */
-export type BasicSizeTuple = [BasicSizeType, BasicSizeType, BasicSizeType]
+export type BasicSizeTuple = [BasicSizeType, BasicSizeType, BasicSizeType?]
