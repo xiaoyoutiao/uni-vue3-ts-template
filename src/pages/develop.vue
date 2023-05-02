@@ -9,6 +9,27 @@
 <template>
   <view>
     <view>
+      <text class="title">pinia持久化对象</text>
+      <input v-model="appStore.developObj.name" type="text" placeholder="developObj.name" />
+      <input v-model="appStore.developObj.age" type="number" placeholder="developObj.age" />
+      <view>{{ appStore.developObj }}</view>
+    </view>
+
+    <view>
+      <text class="title">pinia持久化</text>
+      <view>{{ appStore.developValue }}</view>
+      <input v-model="appStore.developValue" type="text" placeholder="appStore.developValue" />
+    </view>
+
+    <view>
+      <text class="title">useStorage</text>
+      <view>getItemResult: {{ JSON.stringify(getItemResult) }}</view>
+      <input v-model="setItemValue" type="text" placeholder="输入缓存内容" />
+      <button @click="getStorage">获取缓存</button>
+      <button @click="setStorage">设置缓存</button>
+    </view>
+
+    <view>
       <basic-img src="https://picsum.photos/200" type="avatar" :size="[300, 300]"></basic-img>
     </view>
 
@@ -61,6 +82,7 @@ import { basicHttp } from '@/utils/request'
 import { useServerapi } from '@/composables/useApi'
 import { getCats } from '@/apis'
 import { useUserStore } from '@/store/modules/user'
+import { useStorage } from '@/composables/useStorage'
 
 const { data, isFinished, isLoading, execute } = useServerapi(getCats, { args: [11] })
 
@@ -118,6 +140,19 @@ const updateToken = () => {
 
 const logToken = () => {
   console.log('accessToken :>> ', userStore.accessToken)
+}
+
+const { getItem, setItem } = useStorage()
+const appStore = useAppStore()
+const getItemResult = ref()
+const setItemValue = ref('')
+
+const getStorage = () => {
+  getItemResult.value = getItem('develop-user')
+}
+
+const setStorage = () => {
+  setItem('develop-user', setItemValue, { maxAge: 1000 * 30 })
 }
 </script>
 

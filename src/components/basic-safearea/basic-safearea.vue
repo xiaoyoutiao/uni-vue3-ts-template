@@ -12,8 +12,8 @@
 export interface BasicSafeareaProps {
   position?: 'top' | 'bottom'
   fixed?: boolean
-  top: number | string
-  bottom: number | string
+  top?: number | string
+  bottom?: number | string
   background?: string
 }
 

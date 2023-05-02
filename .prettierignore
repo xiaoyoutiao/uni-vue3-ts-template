@@ -16,3 +16,7 @@ package.json
 .npmrc
 
 src/components/packages
+
+auto-imports.d.ts
+.eslintrc-auto-import.json
+components.d.ts
