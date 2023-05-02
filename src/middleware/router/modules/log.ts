@@ -1,4 +1,4 @@
-import type { RouterMiddleware } from './types'
+import type { RouterMiddleware } from '../types'
 
 export const logMiddleware: RouterMiddleware = (
   to: string,

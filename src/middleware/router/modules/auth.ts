@@ -1,4 +1,4 @@
-import type { RouterMiddleware } from './types'
+import type { RouterMiddleware } from '../types'
 
 let isLogin = false
 

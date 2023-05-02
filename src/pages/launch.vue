@@ -12,7 +12,7 @@
     <image class="loading" src="@/static/launch-loading.png" />
     <text>正在启动，请稍候</text>
 
-    <basic-safearea>
+    <basic-safearea fixed>
       <template #top>
         <view class="text-center">版本: {{ miniappStore.version || '暂无' }}</view>
         <view v-if="miniappStore.envVersion !== 'release'" class="text-center mt-1">
